@@ -43,9 +43,7 @@
 <meta property="og:description" content="This function loads the Atlantis AgeBiomIndx.txt output file.
   Biomass (total annual tonnes) is only available for species that are
   turned on in the functionalGroups.csv file. Function does not
-  load relative biomass for these species. Also loads ecosystem
-  indicators (PelDemRatio, PiscivPlankRatio, DivCount, InfEpiRatio,
-  BSSslope, HabitCover) available in the BiomInx.txt file." />
+  load relative biomass for these species." />
 
 
 
@@ -135,12 +133,10 @@
     <p>This function loads the Atlantis AgeBiomIndx.txt output file.
   Biomass (total annual tonnes) is only available for species that are
   turned on in the <code>functionalGroups.csv</code> file. Function does not
-  load relative biomass for these species. Also loads ecosystem
-  indicators (PelDemRatio, PiscivPlankRatio, DivCount, InfEpiRatio,
-  BSSslope, HabitCover) available in the BiomInx.txt file.</p>
+  load relative biomass for these species.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>load_agebioind</span><span class='op'>(</span><span class='va'>dir</span>, <span class='va'>file_bioind</span>, <span class='va'>fgs</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>load_agebioind</span><span class='op'>(</span><span class='va'>dir</span>, <span class='va'>file_agebioind</span>, <span class='va'>fgs</span>, verbose <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,10 +147,10 @@
 default is <code><a href='https://rdrr.io/r/base/getwd.html'>getwd()</a></code>.</p></td>
     </tr>
     <tr>
-      <th>file_bioind</th>
-      <td><p>A character value specifying the name of the text file
-that contains total annual biomass in tonnes output for an Atlantis scenario.
-An example entry would be <code>"outputSETASBiomIndx.txt"</code>.</p></td>
+      <th>file_agebioind</th>
+      <td><p>A character value specifying the name of the output text file
+that contains total annual biomass by age (in tonnes) for an Atlantis scenario.
+An example entry would be <code>"outputSETASAgeBiomIndx.txt"</code>.</p></td>
     </tr>
     <tr>
       <th>fgs</th>
