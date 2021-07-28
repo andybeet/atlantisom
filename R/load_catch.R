@@ -32,14 +32,16 @@ load_catch <- function(dir, file_catch, fgs, verbose = FALSE) {
   names(catchbio)[match(fishedlookup$code,names(catchbio))] <- fishedlookup$name
 
   catchbio <- catchbio %>%
-     tidyr::gather(species, catchbio, -Time)
+    tidyr::gather(species, catchbio, -Time) %>%
+    dplyr::left_join(.,fishedlookup %>% dplyr::select(name,code),by = c("species"= "name"))
 
   out <- data.frame(species = catchbio$species,
                     agecl = NA,
                     polygon = NA,
                     layer = NA,
                     time = catchbio$Time,
-                    atoutput = catchbio$catchbio)
+                    atoutput = catchbio$catchbio,
+                    code = catchbio$code)
 
   out <- out[order(out$species,out$time,out$polygon,out$agecl),]
 
