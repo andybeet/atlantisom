@@ -62,6 +62,7 @@ reference:
   - om_init
   - om_species
   - read_savedsurvs
+  - read_savedfisheries
   - reformat_compositions
   - run_stocksynthesis
   - run_truth
@@ -69,4 +70,5 @@ reference:
   - SS_write_comps
   - SS_write_EWAA
   - SS_write_ts
-
+  - write_SS_dat
+  - write_SS_ctl
