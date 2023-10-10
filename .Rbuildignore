@@ -2,3 +2,4 @@
 ^\.Rproj\.user$
 # folders
 .github
+^\.github$
