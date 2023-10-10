@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">atlantisom</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../articles/atlantisom.html">Get started</a>
 </li>
@@ -50,7 +46,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -75,13 +71,14 @@
 
       
 
-      </header><script src="AtlantisToStockAssessment_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>AtlantisOMtoSSVignette</h1>
-                        <h4 class="author">Christine Stawitz, Sarah Gaichas</h4>
+                        <h4 data-toc-skip class="author">Christine
+Stawitz, Sarah Gaichas</h4>
             
-            <h4 class="date">May 8, 2019</h4>
+            <h4 data-toc-skip class="date">May 8, 2019</h4>
       
       
       <div class="hidden name"><code>AtlantisToStockAssessment.Rmd</code></div>
@@ -90,126 +87,156 @@
 
     
     
-<div id="setup" class="section level2">
-<h2 class="hasAnchor">
-<a href="#setup" class="anchor"></a>Setup</h2>
-<p>First, you will want to load packages and initialize the correct file and working directory names.</p>
+<div class="section level2">
+<h2 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
+</h2>
+<p>First, you will want to load packages and initialize the correct file
+and working directory names.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org">tidyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/">here</a></span><span class="op">)</span></code></pre></div>
-<p>If you want to load the local of the atlantisom R package, use devtools:</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyr.tidyverse.org" class="external-link">tidyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com" class="external-link">data.table</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/" class="external-link">here</a></span><span class="op">)</span></span></code></pre></div>
+<p>If you want to load the local of the atlantisom R package, use
+devtools:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#library(devtools)</span>
-<span class="co">#package.dir &lt;- "C:/Users/chris/Documents/Github/atlantisom"</span>
-<span class="co">#package.dir &lt;- here()</span>
-<span class="co">#devtools::load_all(package.dir)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">atlantisom</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#library(devtools)</span></span>
+<span><span class="co">#package.dir &lt;- "C:/Users/chris/Documents/Github/atlantisom"</span></span>
+<span><span class="co">#package.dir &lt;- here()</span></span>
+<span><span class="co">#devtools::load_all(package.dir)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">atlantisom</span><span class="op">)</span></span></code></pre></div>
 <p>Or you can install directly from the Github repository.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r4atlantis\atlantisom"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"r4atlantis\atlantisom"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="initializing-input-files-and-directories" class="section level2">
-<h2 class="hasAnchor">
-<a href="#initializing-input-files-and-directories" class="anchor"></a>Initializing input files and directories</h2>
-<p>You will first need to tell <code>atlantisom</code> to know where to look for the output and input files from your atlantis model run. Here, we will give the directory where the Atlantis inputs and outputs are stored <code>d.name</code>, the location of the functional groups file <code>functional.group.file</code> (.csv), the biomass pools file <code>biomass.pools.file</code> (.nc), the box locations file <code>box.file</code> (.bgm), an <code>initial.conditions.file</code> (.nc), the biology .prm file <code>biol.prm.file</code> (.prm), and the run .prm file <code>run.prm.file</code> (.prm). You will also need to specify a scenario name, which will be used to define the output files (i.e. output is stored in a number of netCDF files of the format: output<scenario><value>.nc). All of these files should be stored in <code>d.name</code>.</value></scenario></p>
+<div class="section level2">
+<h2 id="initializing-input-files-and-directories">Initializing input files and directories<a class="anchor" aria-label="anchor" href="#initializing-input-files-and-directories"></a>
+</h2>
+<p>You will first need to tell <code>atlantisom</code> to know where to
+look for the output and input files from your atlantis model run. Here,
+we will give the directory where the Atlantis inputs and outputs are
+stored <code>d.name</code>, the location of the functional groups file
+<code>functional.group.file</code> (.csv), the biomass pools file
+<code>biomass.pools.file</code> (.nc), the box locations file
+<code>box.file</code> (.bgm), an <code>initial.conditions.file</code>
+(.nc), the biology .prm file <code>biol.prm.file</code> (.prm), and the
+run .prm file <code>run.prm.file</code> (.prm). You will also need to
+specify a scenario name, which will be used to define the output files
+(i.e. output is stored in a number of netCDF files of the format:
+output<scenario><value>.nc). All of these files should be stored in
+<code>d.name</code>.</value></scenario></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#ss.directory &lt;- here("inst/extdata/Sardine_SS_files")</span>
-
-<span class="co">#Need a way to manage data that doesn't rely on specific paths</span>
-<span class="va">d.name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"non_synced_data/CalCurrentSummitScenario1"</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"config/CCConfig.R"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#ss.directory &lt;- here("inst/extdata/Sardine_SS_files")</span></span>
+<span></span>
+<span><span class="co">#Need a way to manage data that doesn't rely on specific paths</span></span>
+<span><span class="va">d.name</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"non_synced_data/CalCurrentSummitScenario1"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/source.html" class="external-link">source</a></span><span class="op">(</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"config/CCConfig.R"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="getting-the-true-operating-model-values" class="section level2">
-<h2 class="hasAnchor">
-<a href="#getting-the-true-operating-model-values" class="anchor"></a>Getting the “true” operating model values</h2>
-<p>There are a number of functions in the package that begin with the prefix <code>load</code> that load various files. See documentation if you’d only like to load one file. The <code><a href="../reference/run_truth.html">atlantisom::run_truth()</a></code> function uses the above file definitions and calls a number of the <code>load</code> functions to read in all of the atlantis output. Note: this call reads in a number of large .nc files, so it will take a few minutes to return.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#Load functional groups</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>funct.groups &lt;-<span class="st"> </span><span class="kw">load_fgs</span>(<span class="dt">dir=</span>d.name,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>                         <span class="dt">file_fgs =</span> functional.groups.file)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#Get just the names of active functional groups</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>funct.group.names &lt;-<span class="st"> </span>funct.groups <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="st">  </span><span class="kw">filter</span>(IsTurnedOn <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="st">  </span><span class="kw">select</span>(Name) <span class="op">%&gt;%</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="st">  </span>.<span class="op">$</span>Name</span>
-<span id="cb5-9"><a href="#cb5-9"></a></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">file.exists</span>(<span class="kw">file.path</span>(d.name,<span class="st">"outputCCV3run_truth.RData"</span>))){</span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="co">#Store all loaded results into an R object</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a>results &lt;-<span class="st"> </span><span class="kw">run_truth</span>(<span class="dt">scenario =</span> scenario.name,</span>
-<span id="cb5-13"><a href="#cb5-13"></a>          <span class="dt">dir =</span> d.name,</span>
-<span id="cb5-14"><a href="#cb5-14"></a>          <span class="dt">file_fgs =</span> functional.groups.file,</span>
-<span id="cb5-15"><a href="#cb5-15"></a>          <span class="dt">file_bgm =</span> box.file,</span>
-<span id="cb5-16"><a href="#cb5-16"></a>          <span class="dt">select_groups =</span> funct.group.names,</span>
-<span id="cb5-17"><a href="#cb5-17"></a>          <span class="dt">file_init =</span> initial.conditions.file,</span>
-<span id="cb5-18"><a href="#cb5-18"></a>          <span class="dt">file_biolprm =</span> biol.prm.file,</span>
-<span id="cb5-19"><a href="#cb5-19"></a>          <span class="dt">file_runprm =</span> run.prm.file</span>
-<span id="cb5-20"><a href="#cb5-20"></a>          <span class="kw">save</span>(results, <span class="dt">file =</span> <span class="st">"outputCCV3run_truth.RData"</span>)</span>
-<span id="cb5-21"><a href="#cb5-21"></a>)</span>
-<span id="cb5-22"><a href="#cb5-22"></a>} <span class="cf">else</span>{</span>
-<span id="cb5-23"><a href="#cb5-23"></a>  results &lt;-<span class="st"> </span><span class="kw">get</span>(<span class="kw">load</span>(<span class="kw">file.path</span>(d.name,<span class="st">"outputCCV3run_truth.RData"</span>)))</span>
-<span id="cb5-24"><a href="#cb5-24"></a>}</span></code></pre></div>
-<p>Now the R object <code>results</code> with the comprehensive results from the Atlantis model has been read in.</p>
+<div class="section level2">
+<h2 id="getting-the-true-operating-model-values">Getting the “true” operating model values<a class="anchor" aria-label="anchor" href="#getting-the-true-operating-model-values"></a>
+</h2>
+<p>There are a number of functions in the package that begin with the
+prefix <code>load</code> that load various files. See documentation if
+you’d only like to load one file. The
+<code><a href="../reference/run_truth.html">atlantisom::run_truth()</a></code> function uses the above file
+definitions and calls a number of the <code>load</code> functions to
+read in all of the atlantis output. Note: this call reads in a number of
+large .nc files, so it will take a few minutes to return.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load functional groups</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>funct.groups <span class="ot">&lt;-</span> <span class="fu">load_fgs</span>(<span class="at">dir=</span>d.name,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">file_fgs =</span> functional.groups.file)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Get just the names of active functional groups</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>funct.group.names <span class="ot">&lt;-</span> funct.groups <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(IsTurnedOn <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Name) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  .<span class="sc">$</span>Name</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">file.path</span>(d.name,<span class="st">"outputCCV3run_truth.RData"</span>))){</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Store all loaded results into an R object</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">run_truth</span>(<span class="at">scenario =</span> scenario.name,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">dir =</span> d.name,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">file_fgs =</span> functional.groups.file,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">file_bgm =</span> box.file,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">select_groups =</span> funct.group.names,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">file_init =</span> initial.conditions.file,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">file_biolprm =</span> biol.prm.file,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">file_runprm =</span> run.prm.file</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>          <span class="fu">save</span>(results, <span class="at">file =</span> <span class="st">"outputCCV3run_truth.RData"</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span>{</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">load</span>(<span class="fu">file.path</span>(d.name,<span class="st">"outputCCV3run_truth.RData"</span>)))</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Now the R object <code>results</code> with the comprehensive results
+from the Atlantis model has been read in.</p>
 </div>
-<div id="simulating-sampling-from-an-atlantis-om" class="section level2">
-<h2 class="hasAnchor">
-<a href="#simulating-sampling-from-an-atlantis-om" class="anchor"></a>Simulating “sampling” from an Atlantis OM</h2>
-<p>There are a number of functions to “sample” biological data from this comprehensive Atlantis output. These include <code>create_survey</code>, <code>sample_ages</code>, <code>sample_diet</code>, <code>sample_fish</code>, and <code>sample_survey_biomass</code>. Below, we use the <code>sample_survey_biomass</code> function to extract time series of a biomass index for a survey and fisheries CPUE for Pacific sardine.</p>
+<div class="section level2">
+<h2 id="simulating-sampling-from-an-atlantis-om">Simulating “sampling” from an Atlantis OM<a class="anchor" aria-label="anchor" href="#simulating-sampling-from-an-atlantis-om"></a>
+</h2>
+<p>There are a number of functions to “sample” biological data from this
+comprehensive Atlantis output. These include <code>create_survey</code>,
+<code>sample_ages</code>, <code>sample_diet</code>,
+<code>sample_fish</code>, and <code>sample_survey_biomass</code>. Below,
+we use the <code>sample_survey_biomass</code> function to extract time
+series of a biomass index for a survey and fisheries CPUE for Pacific
+sardine.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">species</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Pacific_sardine"</span><span class="op">)</span>
-
-<span class="co">####### Boxes = spatial area, use all for now</span>
-<span class="co"># effic - ?</span>
-<span class="co"># sel - age-based selectivity curve</span>
-<span class="va">boxes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/duplicated.html">unique</a></span><span class="op">(</span><span class="va">results</span><span class="op">$</span><span class="va">nums</span><span class="op">$</span><span class="va">polygon</span><span class="op">)</span>
-<span class="va">effic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="va">species</span>, efficiency<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span>
-<span class="va">sel</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">species</span>,<span class="fl">10</span><span class="op">)</span>,
-               agecl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>,
-              selex<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">#Extract survey numbers</span>
-<span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_survey.html">create_survey</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">results</span><span class="op">$</span><span class="va">nums</span>, time<span class="op">=</span><span class="va">timeall</span>, species<span class="op">=</span><span class="va">species</span>, boxes<span class="op">=</span><span class="va">boxes</span>, effic<span class="op">=</span><span class="va">effic</span>, selex<span class="op">=</span><span class="va">sel</span><span class="op">)</span>
-
-<span class="co">#wtAtAge comes from empirical data from assessment, in kg</span>
-<span class="va">wtAtAge</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Pacific_sardine"</span>,<span class="fl">10</span><span class="op">)</span>,
-                agecl<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,
-                wtAtAge<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span> <span class="fl">0.0542</span>, <span class="fl">0.0837</span>,  <span class="fl">0.1103</span>, <span class="fl">0.1323</span>, <span class="fl">0.1497</span>, <span class="fl">0.163</span>,  <span class="fl">0.1729</span>, <span class="fl">0.1801</span>, <span class="fl">0.1854</span>, <span class="fl">0.1941</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">#Set survey CV at 0.2</span>
-<span class="va">cv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="st">"Pacific_sardine"</span>, cv<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.2</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">#Sample the survey biomass</span>
-<span class="va">survObsBiom</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sample_survey_biomass.html">sample_survey_biomass</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">tmp</span>,cv<span class="op">=</span><span class="va">cv</span>,<span class="va">wtAtAge</span><span class="op">)</span>
-
-<span class="co">#Define selectivity curve for the fishery</span>
-<span class="va">selCatch</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">species</span>,<span class="fl">10</span><span class="op">)</span>,
-                 agecl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>,
-                 selex<span class="op">=</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co">#How do we distinguish survey sampling from fisheries sampling? Maybe define by historical sampling locations?</span>
-<span class="va">fishery</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_survey.html">create_survey</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">results</span><span class="op">$</span><span class="va">nums</span>, time<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">99</span>,<span class="fl">1</span><span class="op">)</span>, species<span class="op">=</span><span class="va">species</span>, boxes<span class="op">=</span><span class="va">boxes</span>, effic<span class="op">=</span><span class="va">effic</span>, selex<span class="op">=</span><span class="va">selCatch</span><span class="op">)</span>
-
-<span class="co"># Make CV of fishery CPUE slightly larger</span>
-<span class="va">cv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="st">"Pacific_sardine"</span>, cv<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Get catch biomass</span>
-<span class="va">catchObsBiom</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sample_survey_biomass.html">sample_survey_biomass</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">fishery</span>,cv<span class="op">=</span><span class="va">cv</span>,<span class="va">wtAtAge</span><span class="op">)</span></code></pre></div>
-<p>We now have the full time series of catch and survey biomass from the atlantis output for Pacific sardine. Next, we read in the dummy SS data (<code>.dat</code>) file and replace the abundance indices with the sampled time series.</p>
+<code class="sourceCode R"><span><span class="va">species</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Pacific_sardine"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">####### Boxes = spatial area, use all for now</span></span>
+<span><span class="co"># effic - ?</span></span>
+<span><span class="co"># sel - age-based selectivity curve</span></span>
+<span><span class="va">boxes</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">results</span><span class="op">$</span><span class="va">nums</span><span class="op">$</span><span class="va">polygon</span><span class="op">)</span></span>
+<span><span class="va">effic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="va">species</span>, efficiency<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span>
+<span><span class="va">sel</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">species</span>,<span class="fl">10</span><span class="op">)</span>,</span>
+<span>               agecl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>,</span>
+<span>              selex<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Extract survey numbers</span></span>
+<span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_survey.html">create_survey</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">results</span><span class="op">$</span><span class="va">nums</span>, time<span class="op">=</span><span class="va">timeall</span>, species<span class="op">=</span><span class="va">species</span>, boxes<span class="op">=</span><span class="va">boxes</span>, effic<span class="op">=</span><span class="va">effic</span>, selex<span class="op">=</span><span class="va">sel</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#wtAtAge comes from empirical data from assessment, in kg</span></span>
+<span><span class="va">wtAtAge</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="st">"Pacific_sardine"</span>,<span class="fl">10</span><span class="op">)</span>,</span>
+<span>                agecl<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>,</span>
+<span>                wtAtAge<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span> <span class="fl">0.0542</span>, <span class="fl">0.0837</span>,  <span class="fl">0.1103</span>, <span class="fl">0.1323</span>, <span class="fl">0.1497</span>, <span class="fl">0.163</span>,  <span class="fl">0.1729</span>, <span class="fl">0.1801</span>, <span class="fl">0.1854</span>, <span class="fl">0.1941</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Set survey CV at 0.2</span></span>
+<span><span class="va">cv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="st">"Pacific_sardine"</span>, cv<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Sample the survey biomass</span></span>
+<span><span class="va">survObsBiom</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sample_survey_biomass.html">sample_survey_biomass</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">tmp</span>,cv<span class="op">=</span><span class="va">cv</span>,<span class="va">wtAtAge</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Define selectivity curve for the fishery</span></span>
+<span><span class="va">selCatch</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">species</span>,<span class="fl">10</span><span class="op">)</span>,</span>
+<span>                 agecl<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span>,</span>
+<span>                 selex<span class="op">=</span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">-</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#How do we distinguish survey sampling from fisheries sampling? Maybe define by historical sampling locations?</span></span>
+<span><span class="va">fishery</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/create_survey.html">create_survey</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">results</span><span class="op">$</span><span class="va">nums</span>, time<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">99</span>,<span class="fl">1</span><span class="op">)</span>, species<span class="op">=</span><span class="va">species</span>, boxes<span class="op">=</span><span class="va">boxes</span>, effic<span class="op">=</span><span class="va">effic</span>, selex<span class="op">=</span><span class="va">selCatch</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Make CV of fishery CPUE slightly larger</span></span>
+<span><span class="va">cv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>species<span class="op">=</span><span class="st">"Pacific_sardine"</span>, cv<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get catch biomass</span></span>
+<span><span class="va">catchObsBiom</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sample_survey_biomass.html">sample_survey_biomass</a></span><span class="op">(</span>dat<span class="op">=</span><span class="va">fishery</span>,cv<span class="op">=</span><span class="va">cv</span>,<span class="va">wtAtAge</span><span class="op">)</span></span></code></pre></div>
+<p>We now have the full time series of catch and survey biomass from the
+atlantis output for Pacific sardine. Next, we read in the dummy SS data
+(<code>.dat</code>) file and replace the abundance indices with the
+sampled time series.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#Read in dummy data</span>
-<span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,<span class="st">"Sardine_SS_files"</span>,file<span class="op">=</span><span class="st">"sardEM_3_3.dat"</span>,package<span class="op">=</span><span class="st">"atlantisom"</span><span class="op">)</span>
-<span class="va">sardine.dat</span> <span class="op">&lt;-</span> <span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SS_readdat_3.30.html">SS_readdat_3.30</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span>
-
-<span class="co">#Replace CPUE observations for first time series with output from Atlantis - last 25 years</span>
-<span class="co"># SS units are metric tons, so we divide by 1000</span>
-<span class="va">sardine.dat</span><span class="op">$</span><span class="va">CPUE</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">75</span>,<span class="st">"obs"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">survObsBiom</span><span class="op">$</span><span class="va">atoutput</span><span class="op">[</span><span class="fl">25</span><span class="op">:</span><span class="fl">99</span><span class="op">]</span><span class="op">/</span><span class="fl">1000</span>
-
-<span class="co">#Replace CPUE observations for second time series with output from Atlantis - last 25 years</span>
-<span class="co"># SS units are metric tons, so we divide by 1000</span>
-<span class="va">sardine.dat</span><span class="op">$</span><span class="va">CPUE</span><span class="op">[</span><span class="fl">76</span><span class="op">:</span><span class="fl">150</span>,<span class="st">"obs"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">catchObsBiom</span><span class="op">$</span><span class="va">atoutput</span><span class="op">[</span><span class="fl">25</span><span class="op">:</span><span class="fl">99</span><span class="op">]</span><span class="op">/</span><span class="fl">1000</span>
-<span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SS_writedat_3.30.html">SS_writedat_3.30</a></span><span class="op">(</span>datlist <span class="op">=</span> <span class="va">sardine.dat</span>,
-                       outfile <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">assessment_dir</span>, <span class="st">"sardEM_3_3.dat"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co">#Read in dummy data</span></span>
+<span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,<span class="st">"Sardine_SS_files"</span>,file<span class="op">=</span><span class="st">"sardEM_3_3.dat"</span>,package<span class="op">=</span><span class="st">"atlantisom"</span><span class="op">)</span></span>
+<span><span class="va">sardine.dat</span> <span class="op">&lt;-</span> <span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SS_readdat_3.30.html" class="external-link">SS_readdat_3.30</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Replace CPUE observations for first time series with output from Atlantis - last 25 years</span></span>
+<span><span class="co"># SS units are metric tons, so we divide by 1000</span></span>
+<span><span class="va">sardine.dat</span><span class="op">$</span><span class="va">CPUE</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">75</span>,<span class="st">"obs"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">survObsBiom</span><span class="op">$</span><span class="va">atoutput</span><span class="op">[</span><span class="fl">25</span><span class="op">:</span><span class="fl">99</span><span class="op">]</span><span class="op">/</span><span class="fl">1000</span></span>
+<span></span>
+<span><span class="co">#Replace CPUE observations for second time series with output from Atlantis - last 25 years</span></span>
+<span><span class="co"># SS units are metric tons, so we divide by 1000</span></span>
+<span><span class="va">sardine.dat</span><span class="op">$</span><span class="va">CPUE</span><span class="op">[</span><span class="fl">76</span><span class="op">:</span><span class="fl">150</span>,<span class="st">"obs"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">catchObsBiom</span><span class="op">$</span><span class="va">atoutput</span><span class="op">[</span><span class="fl">25</span><span class="op">:</span><span class="fl">99</span><span class="op">]</span><span class="op">/</span><span class="fl">1000</span></span>
+<span><span class="fu">r4ss</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/r4ss/man/SS_writedat_3.30.html" class="external-link">SS_writedat_3.30</a></span><span class="op">(</span>datlist <span class="op">=</span> <span class="va">sardine.dat</span>,</span>
+<span>                       outfile <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">assessment_dir</span>, <span class="st">"sardEM_3_3.dat"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
   </div>
 
@@ -224,11 +251,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Gavin Fay, Sarah Gaichas, Beth Fulton, Allan Hicks, Emma Hodgson, Kelli Johnson, Isaac Kaplan, Alexander Keth, Sean Lucey, Matteo Sinerchia, Howard Townsend.</p>
+  <p></p>
+<p>Developed by Gavin Fay, Sarah Gaichas, Beth Fulton, Allan Hicks, Emma Hodgson, Kelli Johnson, Isaac Kaplan, Alexander Keth, Sean Lucey, Matteo Sinerchia, Howard Townsend.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -236,6 +265,8 @@
 
   
 
+
+  
 
   </body>
 </html>

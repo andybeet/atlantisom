@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://r4atlantis.github.io/atlantisom/404.html</loc>
+  </url>
+  <url>
+    <loc>https://r4atlantis.github.io/atlantisom/articles/AtlantisToStockAssessment.html</loc>
+  </url>
+  <url>
+    <loc>https://r4atlantis.github.io/atlantisom/articles/NEMoW_demo.html</loc>
+  </url>
+  <url>
+    <loc>https://r4atlantis.github.io/atlantisom/articles/atlantisom.html</loc>
+  </url>
+  <url>
+    <loc>https://r4atlantis.github.io/atlantisom/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r4atlantis.github.io/atlantisom/authors.html</loc>
+  </url>
+  <url>
     <loc>https://r4atlantis.github.io/atlantisom/index.html</loc>
   </url>
   <url>
@@ -59,6 +77,9 @@
   </url>
   <url>
     <loc>https://r4atlantis.github.io/atlantisom/reference/get_boundary.html</loc>
+  </url>
+  <url>
+    <loc>https://r4atlantis.github.io/atlantisom/reference/index.html</loc>
   </url>
   <url>
     <loc>https://r4atlantis.github.io/atlantisom/reference/load_agebioind.html</loc>
@@ -167,14 +188,5 @@
   </url>
   <url>
     <loc>https://r4atlantis.github.io/atlantisom/reference/write_meta.html</loc>
-  </url>
-  <url>
-    <loc>https://r4atlantis.github.io/atlantisom/articles/AtlantisToStockAssessment.html</loc>
-  </url>
-  <url>
-    <loc>https://r4atlantis.github.io/atlantisom/articles/NEMoW_demo.html</loc>
-  </url>
-  <url>
-    <loc>https://r4atlantis.github.io/atlantisom/articles/atlantisom.html</loc>
   </url>
 </urlset>

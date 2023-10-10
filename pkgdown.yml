@@ -1,11 +1,11 @@
-pandoc: 2.7.3
-pkgdown: 1.6.1
+pandoc: 2.19.2
+pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   AtlantisToStockAssessment: AtlantisToStockAssessment.html
   NEMoW_demo: NEMoW_demo.html
   atlantisom: atlantisom.html
-last_built: 2021-07-28T18:38Z
+last_built: 2023-10-10T14:16Z
 urls:
   reference: https://r4atlantis.github.io/atlantisom/reference
   article: https://r4atlantis.github.io/atlantisom/articles
